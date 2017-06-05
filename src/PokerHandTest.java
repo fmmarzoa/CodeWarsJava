@@ -12,6 +12,7 @@ public class PokerHandTest {
 
     @Test
     public void compareWith() throws Exception {
+        Test("Yet another four of a kind",        win, "JC KH JS JD JH", "JC 7H JS JD JH");
         Test("Highest straight flush wins",        loss, "2H 3H 4H 5H 6H", "KS AS TS QS JS");
         Test("Straight flush wins of 4 of a kind", win,  "2H 3H 4H 5H 6H", "AS AD AC AH JD");
         Test("Highest 4 of a kind wins",           win,  "AS AH 2H AD AC", "JS JD JC JH 3D");

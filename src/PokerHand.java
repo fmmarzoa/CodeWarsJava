@@ -122,11 +122,15 @@ public class PokerHand
 
     private int isFourOfAkind() {
         int value = equalValues(0, 3);
-        if (value == -1) {
-            return equalValues(1, 4);
+        if (value != -1) {
+            return value * 10 + getCardValue(cards[4]);
         } else {
-            return value;
+            value = equalValues(1, 4);
+            if (value != -1) {
+                return value * 10 + getCardValue(cards[0]);
+            }
         }
+        return -1;
     }
 
     private int isFullHouse() {
