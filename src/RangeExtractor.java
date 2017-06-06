@@ -1,26 +1,33 @@
 
-class RangeExtractor {
+public class RangeExtractor {
     public static int addBuilderEntry(int[] arr, StringBuilder builder, int leftPos, int rightPos) {
         int leftVal = arr[leftPos];
         int rightVal = arr[rightPos];
         int prevRightVal = arr[rightPos - 1];
-        if ( (Math.abs(rightVal - prevRightVal) != 1) || (rightPos == arr.length - 1)) {
-            if (Math.abs(rightPos - leftPos) == 1) {
+        if ((Math.abs(rightVal - prevRightVal) != 1) || (rightPos == arr.length - 1)) {
+            if (Math.abs(rightPos - leftPos) <= 2) {
                 builder.append(leftVal);
-                if (rightPos != arr.length - 1)
-                    builder.append(',');
+                builder.append(",");
+                if (Math.abs(rightPos - leftPos) == 2) {
+                    builder.append(prevRightVal);
+                    builder.append(",");
+                }
                 leftPos = rightPos;
             } else {
                 builder.append(leftVal);
                 builder.append('-');
-                builder.append(prevRightVal);
+                if (rightPos == arr.length - 1) {
+                    builder.append(rightVal);
+                } else {
+                    builder.append(prevRightVal);
+                }
                 builder.append(',');
                 leftPos = rightPos;
             }
         }
         return leftPos;
     }
-    
+
     public static String rangeExtraction(int[] arr) {
         StringBuilder rtn = new StringBuilder();
         int leftPos = 0;
@@ -30,6 +37,7 @@ class RangeExtractor {
             leftPos = addBuilderEntry(arr, rtn, leftPos, rightPos);
             rightPos++;
         }
+        rtn.setLength(rtn.length() - 1); // Remove trailing comma
         return rtn.toString();
     }
 }
