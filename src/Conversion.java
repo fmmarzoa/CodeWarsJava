@@ -1,6 +1,11 @@
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Kata info:
+ *
+ * https://www.codewars.com/kata/51b62bf6a9c58071c600001b
+ */
 public class Conversion {
     static Map<Integer, String> symbols = new LinkedHashMap<>();
     static {

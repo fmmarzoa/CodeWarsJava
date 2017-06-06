@@ -1,3 +1,8 @@
+/**
+ * Kata info:
+ *
+ * https://www.codewars.com/kata/54d4c8b08776e4ad92000835
+ */
 public class PerfectPower {
     public static double getLog(int number, int base) {
         return Math.log(number) / Math.log(base);

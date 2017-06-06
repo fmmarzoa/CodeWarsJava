@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kata info:
+ *
+ * https://www.codewars.com/kata/51ba717bb08c1cd60f00002f
+ */
 public class RangeExtractor {
     public static String rangeExtraction(int[] arr) {
         StringBuilder rtn = new StringBuilder();

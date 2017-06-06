@@ -1,3 +1,8 @@
+/**
+ * Kata info:
+ *
+ * https://www.codewars.com/kata/551f23362ff852e2ab000037
+ */
 public class LongestSlideDown {
     public static int longestSlideDown(int[][] pyramid) {
         for (int row = pyramid.length - 1; row > 0; row--) {

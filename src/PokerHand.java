@@ -1,6 +1,11 @@
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * Kata info:
+ *
+ * https://www.codewars.com/kata/5739174624fc28e188000465
+ */
 public class PokerHand
 {
     public enum Result { TIE, WIN, LOSS }
