@@ -1,43 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class RangeExtractor {
-    public static int addBuilderEntry(int[] arr, StringBuilder builder, int leftPos, int rightPos) {
-        int leftVal = arr[leftPos];
-        int rightVal = arr[rightPos];
-        int prevRightVal = arr[rightPos - 1];
-        if ((Math.abs(rightVal - prevRightVal) != 1) || (rightPos == arr.length - 1)) {
-            if (Math.abs(rightPos - leftPos) <= 2) {
-                builder.append(leftVal);
-                builder.append(",");
-                if (Math.abs(rightPos - leftPos) == 2) {
-                    builder.append(prevRightVal);
-                    builder.append(",");
-                }
-                leftPos = rightPos;
-            } else {
-                builder.append(leftVal);
-                builder.append('-');
-                if (rightPos == arr.length - 1) {
-                    builder.append(rightVal);
-                } else {
-                    builder.append(prevRightVal);
-                }
-                builder.append(',');
-                leftPos = rightPos;
-            }
-        }
-        return leftPos;
-    }
-
     public static String rangeExtraction(int[] arr) {
         StringBuilder rtn = new StringBuilder();
-        int leftPos = 0;
-        int rightPos = 1;
-        int prevRightVal = arr[leftPos];
-        while (rightPos < arr.length) {
-            leftPos = addBuilderEntry(arr, rtn, leftPos, rightPos);
-            rightPos++;
+        List<String> stub = new ArrayList<>();
+        stub.add(Integer.toString(arr[0]));
+        for (int i = 1; i < arr.length; i++) {
+            if (Math.abs(arr[i] - arr[i-1]) > 1) {
+                makeRange(stub, rtn);
+                rtn.append(',');
+                stub.clear();
+            }
+            stub.add(Integer.toString(arr[i]));
         }
-        rtn.setLength(rtn.length() - 1); // Remove trailing comma
+        makeRange(stub, rtn);
         return rtn.toString();
+    }
+
+    private static void makeRange(List<String> stub, StringBuilder rtn) {
+        if (stub.size() > 2) {
+            rtn.append(stub.get(0));
+            rtn.append('-');
+            rtn.append(stub.get(stub.size() - 1));
+        } else {
+            rtn.append(String.join(",", stub));
+        }
     }
 }
