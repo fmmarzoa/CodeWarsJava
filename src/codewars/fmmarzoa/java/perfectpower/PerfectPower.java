@@ -1,3 +1,5 @@
+package codewars.fmmarzoa.java.perfectpower;
+
 /**
  * Kata info:
  *

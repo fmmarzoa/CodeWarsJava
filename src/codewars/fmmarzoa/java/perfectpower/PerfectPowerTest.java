@@ -1,3 +1,5 @@
+package codewars.fmmarzoa.java.perfectpower;
+
 import org.junit.Test;
 
 import java.util.Random;

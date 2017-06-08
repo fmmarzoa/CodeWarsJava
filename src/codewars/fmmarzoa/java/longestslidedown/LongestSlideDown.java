@@ -1,3 +1,5 @@
+package codewars.fmmarzoa.java.longestslidedown;
+
 /**
  * Kata info:
  *

@@ -1,3 +1,5 @@
+package codewars.fmmarzoa.java.conversion;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 

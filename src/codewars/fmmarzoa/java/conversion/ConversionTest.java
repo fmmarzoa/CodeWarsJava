@@ -1,3 +1,5 @@
+package codewars.fmmarzoa.java.conversion;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

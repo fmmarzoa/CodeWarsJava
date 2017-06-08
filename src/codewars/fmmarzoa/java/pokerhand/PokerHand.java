@@ -1,3 +1,5 @@
+package codewars.fmmarzoa.java.pokerhand;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
