@@ -54,6 +54,8 @@ public class Runes {
     }
 
     public static int solveExpression(final String expression) throws InvalidMathExpression {
+        // TODO: Check the digits to avoid using those in that are already in the expression, following the rules:
+        // "All of the ?s in an expression will represent the same digit (0-9), and it won't be one of the other given digits in the expression"
         int missingDigit = -1;
         for (int digit = 0; digit <= 9; digit++) {
             String exp = expression.replace('?', Character.forDigit(digit, 10));
