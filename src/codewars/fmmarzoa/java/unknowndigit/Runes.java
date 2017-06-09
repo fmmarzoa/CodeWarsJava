@@ -51,7 +51,7 @@ public class Runes {
         return -1;
     }
 
-    public static int solveExpression(final String expression) throws InvalidMathExpression {
+    public static int solveExpression(final String expression) {
         int missingDigit = -1;
         for (int digit = 0; digit <= 9; digit++) {
             char digitAsChar = Character.forDigit(digit, 10);
@@ -68,6 +68,11 @@ public class Runes {
             } catch (LeftZeroesException e) {
                 // left 0s not valid, so skip to next iteration
                 continue;
+            } catch (InvalidMathExpression invalidMathExpression) {
+                // This should never happen and actually should be checked outside,
+                // but tests at Codewars won't do it and the code won't compile
+                // due 'unreported exception issues'
+                return -1;
             }
             int expectedResult = Integer.parseInt(expParts[1]);
             if (actualResult == expectedResult) {
